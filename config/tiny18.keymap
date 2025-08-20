@@ -34,8 +34,6 @@
 // ChatGTP提案キーマップ
 
 / {
-
-/*
     combos {
         compatible = "zmk,combos";
 
@@ -69,7 +67,7 @@
         };
     };
 
-*/
+/*
 
     keymap {
         compatible = "zmk,keymap";
@@ -153,6 +151,7 @@
     };
 };
 
+*/
 
 /* 以下デフォルト
 
@@ -226,6 +225,9 @@
         };
     };
 
+*/
+
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -273,4 +275,3 @@
     };
 };
 
-*/
