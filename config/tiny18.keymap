@@ -37,37 +37,35 @@
     combos {
         compatible = "zmk,combos";
 
-        // 下段ショートカット（左右2キーずつ）
+        // 下段ショートカット（左右親指2キーずつ）
         left_bottom {
-            key-positions = <6 7>;  // 左下段 Z/X
+            key-positions = <14 15>;  // 左親指下段
             bindings = <&kp Z &kp X>;
         };
 
         right_bottom {
-            key-positions = <14 15>; // 右下段 N/M
+            key-positions = <16 17>; // 右親指下段
             bindings = <&kp N &kp M>;
         };
 
         // Alt+Tab 順送り
         alt_tab {
-            key-positions = <3 12>;  // 左ホームCtrl(A) + 右ホームAlt(K)
+            key-positions = <6 12>;  // 左ホームCtrl(A) + 右ホームAlt(K)
             bindings = <&kp TAB &kp RIGHT_ALT>;
         };
 
         // Alt+Tab 逆送り（Shift追加）
         alt_shift_tab {
-            key-positions = <3 11 12>;  // 左ホームCtrl(A) + 右ホームShift(J) + 右ホームAlt(K)
+            key-positions = <6 10 12>;  // 左ホームCtrl(A) + 右ホームShift(J) + 右ホームAlt(K)
             bindings = <&kp TAB &kp RSHIFT &kp RIGHT_ALT>;
         };
 
         // 日本語IME
         ime_toggle {
-            key-positions = <4 12>; // 左S(GUI) / 右K(Alt)など直感割当
+            key-positions = <7 11>; // 左ホームGUI(S) / 右ホームAlt(K)
             bindings = <&kp LANG1 &kp LANG2>;
         };
     };
-
-/*
 
     keymap {
         compatible = "zmk,keymap";
@@ -76,18 +74,16 @@
             bindings = <
             // 左上段 0-2
             &kp Q &kp W &kp E
-            // 左ホーム段 3-5
-            &mt LCTRL A &mt LGUI S &mt LALT D &mt LSHIFT F
-            // 左下段 6-7
-            &kp Z &kp X
-            // 右上段 8-10
+            // 右上段 3-5
             &kp Y &kp U &kp I
-            // 右ホーム段 11-13
-            &mt RSHIFT J &mt RALT K &mt RGUI L &mt RCTRL ;
-            // 右下段 14-15
+            // 左ホーム段 6-9
+            &mt LCTRL A &mt LGUI S &mt LALT D &mt LSHIFT F
+            // 右ホーム段 10-13
+            &mt RSHIFT J &mt RALT K &mt RGUI L &mt RCTRL COLON
+            // 左親指下段 14-15
+            &kp Z &kp X
+            // 右親指下段 16-17
             &kp N &kp M
-            // 親指キー 16-17
-            &kp SPACE &kp ENTER
             >;
         };
 
@@ -95,8 +91,8 @@
         layer_1 {
             bindings = <
             &kp 1 &kp 2 &kp 3
-            &kp 4 &kp 5 &kp 6 &kp 7
-            &kp 8 &kp 9 &kp 0
+            &kp 4 &kp 5 &kp 6
+            &kp 7 &kp 8 &kp 9 &kp 0
             &kp MINUS &kp EQUAL &kp LEFT_BRACKET &kp RIGHT_BRACKET
             &kp SEMICOLON &kp QUOTE &kp COMMA &kp PERIOD
             &kp SLASH
@@ -107,8 +103,8 @@
         layer_2 {
             bindings = <
             &kp F1 &kp F2 &kp F3
-            &kp F4 &kp F5 &kp F6 &kp F7
-            &kp F8 &kp F9 &kp F10
+            &kp F4 &kp F5 &kp F6
+            &kp F7 &kp F8 &kp F9 &kp F10
             &kp F11 &kp F12 &kp ESC &kp TAB
             &kp CAPS_LOCK &kp PRINT_SCREEN &kp SCROLL_LOCK &kp PAUSE
             &trans
@@ -116,7 +112,7 @@
         };
 
         // Bluetooth設定レイヤー
-        layer_3 {
+        layer_bt {
             bindings = <
             &trans &trans &trans
             &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &trans
@@ -127,31 +123,9 @@
             &trans &trans &trans &trans
             >;
         };
-
-// layer 4-6は暫定でデフォルトを使用
-
-        layer_4 {
-            bindings = <
-&kp F1  &kp F2  &kp F3  &trans  &trans  &trans  &kp F7  &kp F4  &kp F5  &kp F6  &trans  &trans  &kp F11  &kp F12  &kp F8  &kp F9  &kp F10  &trans
-            >;
-        };
-
-        layer_5 {
-            bindings = <
-&trans  &trans  &trans  &bt BT_SEL 1  &bt BT_SEL 4  &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 2  &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 3
-            >;
-        };
-
-        layer_6 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
     };
 };
 
-*/
 
 /* 以下デフォルト
 
@@ -225,9 +199,6 @@
         };
     };
 
-*/
-
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -275,3 +246,4 @@
     };
 };
 
+*/
