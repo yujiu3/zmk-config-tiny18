@@ -121,7 +121,7 @@
         // -----------------------------
         // Bluetooth設定レイヤー
         // -----------------------------
-        layer_bt {
+        layer_3 {
             bindings = <
             &trans &trans &trans        // 左上段 0-2
             &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 // 右上段 3-5
@@ -131,6 +131,27 @@
             &trans &trans                        // 右下段 16-17
             >;
         };
+
+// layer4-6はデフォルト設定を流用（暫定）
+
+        layer_4 {
+            bindings = <
+&kp F1  &kp F2  &kp F3  &trans  &trans  &trans  &kp F7  &kp F4  &kp F5  &kp F6  &trans  &trans  &kp F11  &kp F12  &kp F8  &kp F9  &kp F10  &trans
+            >;
+        };
+
+        layer_5 {
+            bindings = <
+&trans  &trans  &trans  &bt BT_SEL 1  &bt BT_SEL 4  &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 2  &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 3
+            >;
+        };
+
+        layer_6 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
     };
 };
 
