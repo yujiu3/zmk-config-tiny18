@@ -34,7 +34,7 @@
 
 // ChatGTP提案キーマップ
 
-{
+/{
     combos {
         compatible = "zmk,combos";
 
