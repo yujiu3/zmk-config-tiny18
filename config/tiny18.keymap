@@ -5,6 +5,104 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
+// ChatGTP提案キーマップ
+
+{
+    combos {
+        compatible = "zmk,combos";
+
+        // 下段ショートカット
+        zxcv {
+            key-positions = <7 8 3 4>;  // 左手下段 Z/X/C/V
+            bindings = <&kp Z &kp X &kp C &kp V>;
+        };
+
+        nmb {
+            key-positions = <16 17 14>; // 右手下段 N/M/B
+            bindings = <&kp N &kp M &kp B>;
+        };
+
+        // Alt+Tab 順送り
+        alt_tab {
+            key-positions = <2 17>;  // 左Tab + 右Alt
+            bindings = <&kp TAB &kp RIGHT_ALT>;
+        };
+
+        // Alt+Tab 逆送り（Shift追加）
+        alt_shift_tab {
+            key-positions = <2 9 17>;  // 左Tab + 左Shift + 右Alt
+            bindings = <&kp TAB &kp LSHIFT &kp RIGHT_ALT>;
+        };
+
+        // 日本語IME
+        ime_toggle {
+            key-positions = <14 17>; // 無変換 / 変換
+            bindings = <&kp LANG1 &kp LANG2>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        // デフォルトレイヤー
+        default_layer {
+            bindings = <
+            // 左手上段
+            &mt LCTRL A  &mt LGUI S  &mt LALT D
+            // 左手ホーム段
+            &mt LSHIFT F &kp Q &kp W &kp E &kp R
+            // 左手下段
+            &kp Z &kp X &kp C &kp V
+
+            // 右手上段
+            &kp Y &kp U &kp I
+            // 右手ホーム段
+            &mt RSHIFT J &mt RALT K &mt RGUI L &mt RCTRL ;
+            // 右手下段
+            &kp N &kp M &kp B &kp SPACE &kp ENTER
+            >;
+        };
+
+        // 数字・記号レイヤー
+        layer_1 {
+            bindings = <
+            &kp 1 &kp 2 &kp 3
+            &kp 4 &kp 5 &kp 6 &kp 7 &kp 8
+            &kp 9 &kp 0 &kp MINUS
+            &kp EQUAL &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp SEMICOLON
+            &kp QUOTE &kp COMMA &kp PERIOD &kp SLASH
+            >;
+        };
+
+        // ファンクションレイヤー
+        layer_2 {
+            bindings = <
+            &kp F1 &kp F2 &kp F3
+            &kp F4 &kp F5 &kp F6 &kp F7 &kp F8
+            &kp F9 &kp F10 &kp F11
+            &kp F12 &kp ESC &kp TAB &kp CAPS_LOCK
+            &kp PRINT_SCREEN &kp SCROLL_LOCK &kp PAUSE &trans
+            >;
+        };
+
+        // Bluetooth設定レイヤー
+        layer_bt {
+            bindings = <
+            &trans &trans &trans
+            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &trans
+            &bt BT_PAIR &trans &trans &trans
+
+            &trans &trans &trans
+            &trans &trans &trans &trans
+            &trans &trans &trans &trans &trans &trans &trans &trans &trans
+            >;
+        };
+    };
+};
+
+
+/* 以下デフォルト
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -121,3 +219,5 @@
         };
     };
 };
+
+*/
