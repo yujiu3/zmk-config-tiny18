@@ -33,12 +33,6 @@
 
 // ChatGTP提案キーマップ
 
-/ #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/input_transform.h>
-#include <zephyr/dt-bindings/input/input-event-codes.h>
-
 / {
     combos {
         compatible = "zmk,combos";
