@@ -37,7 +37,7 @@
     combos {
         compatible = "zmk,combos";
 
-        // 下段ショートカット（左右親指2キーずつ）
+        // 下段ショートカット（左右2キーずつ）
         left_bottom {
             key-positions = <14 15>;  // 左親指下段
             bindings = <&kp Z &kp X>;
@@ -70,6 +70,9 @@
     keymap {
         compatible = "zmk,keymap";
 
+        // -----------------------------
+        // デフォルトレイヤー
+        // -----------------------------
         default_layer {
             bindings = <
             // 左上段 0-2
@@ -79,72 +82,55 @@
             // 左ホーム段 6-9
             &mt LCTRL A &mt LGUI S &mt LALT D &mt LSHIFT F
             // 右ホーム段 10-13
-            &mt RSHIFT J &mt RALT K &mt RGUI L &mt RCTRL COLON
-            // 左親指下段 14-15
+            &mt RSHIFT J &mt RALT K &mt RGUI L &kp RCTRL
+            // 左下段（親指）14-15
             &kp Z &kp X
-            // 右親指下段 16-17
+            // 右下段（親指）16-17
             &kp N &kp M
             >;
         };
 
+        // -----------------------------
         // 数字・記号レイヤー
+        // -----------------------------
         layer_1 {
             bindings = <
-            &kp 1 &kp 2 &kp 3
-            &kp 4 &kp 5 &kp 6
-            &kp 7 &kp 8 &kp 9 &kp 0
-            &kp MINUS &kp EQUAL &kp LEFT_BRACKET &kp RIGHT_BRACKET
-            &kp SEMICOLON &kp QUOTE &kp COMMA &kp PERIOD
-            &kp SLASH
+            &kp 1 &kp 2 &kp 3          // 左上段 0-2
+            &kp 4 &kp 5 &kp 6          // 右上段 3-5
+            &kp 7 &kp 8 &kp 9 &kp 0    // 左ホーム段 6-9
+            &kp MINUS &kp EQUAL &kp LEFT_BRACKET &kp RIGHT_BRACKET  // 右ホーム段 10-13
+            &kp COMMA &kp PERIOD       // 左下段 14-15
+            &kp SLASH &kp BACKSLASH    // 右下段 16-17
             >;
         };
 
+        // -----------------------------
         // ファンクションレイヤー
+        // -----------------------------
         layer_2 {
             bindings = <
-            &kp F1 &kp F2 &kp F3
-            &kp F4 &kp F5 &kp F6
-            &kp F7 &kp F8 &kp F9 &kp F10
-            &kp F11 &kp F12 &kp ESC &kp TAB
-            &kp CAPS_LOCK &kp PRINT_SCREEN &kp SCROLL_LOCK &kp PAUSE
-            &trans
+            &kp F1 &kp F2 &kp F3       // 左上段 0-2
+            &kp F4 &kp F5 &kp F6       // 右上段 3-5
+            &kp F7 &kp F8 &kp F9 &kp F10 // 左ホーム段 6-9
+            &kp F11 &kp F12 &kp ESC &kp TAB // 右ホーム段 10-13
+            &kp CAPS_LOCK &kp PRINT_SCREEN // 左下段 14-15
+            &kp SCROLL_LOCK &kp PAUSE      // 右下段 16-17
             >;
         };
 
+        // -----------------------------
         // Bluetooth設定レイヤー
-        layer_3 {
+        // -----------------------------
+        layer_bt {
             bindings = <
-            &trans &trans &trans
-            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &trans
-            &bt BT_PAIR &trans
-
-            &trans &trans &trans
-            &trans &trans &trans &trans
-            &trans &trans &trans &trans
+            &trans &trans &trans        // 左上段 0-2
+            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 // 右上段 3-5
+            &bt BT_SEL 3 &trans &bt BT_PAIR &trans  // 左ホーム段 6-9
+            &trans &trans &trans &trans            // 右ホーム段 10-13
+            &trans &trans                        // 左下段 14-15
+            &trans &trans                        // 右下段 16-17
             >;
         };
-
-// layer4-6はデフォルトを流用（暫定）
-
-        layer_4 {
-            bindings = <
-&kp F1  &kp F2  &kp F3  &trans  &trans  &trans  &kp F7  &kp F4  &kp F5  &kp F6  &trans  &trans  &kp F11  &kp F12  &kp F8  &kp F9  &kp F10  &trans
-            >;
-        };
-
-        layer_5 {
-            bindings = <
-&trans  &trans  &trans  &bt BT_SEL 1  &bt BT_SEL 4  &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 2  &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 3
-            >;
-        };
-
-        layer_6 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
-
     };
 };
 
