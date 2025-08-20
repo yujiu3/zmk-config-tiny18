@@ -70,70 +70,52 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        default_layer: default_layer {
             bindings = <
-                // 左上段 (0-2)
+                // 左上段
                 &kp Q     &kp W     &kp E
-                // 右上段 (3-5)
+                // 右上段
                 &kp Y     &kp U     &kp I
-                // 左ホーム段 (6-9)
+                // 左ホーム段
                 &mt LCTRL A  &mt LGUI S  &mt LALT D  &mt LSHIFT F
-                // 右ホーム段 (10-13)
+                // 右ホーム段
                 &mt RSHIFT J &mt RALT K  &mt RGUI L  &kp RCTRL
-                // 左下段 (14-15)
+                // 左下段
                 &kp Z     &kp X
-                // 右下段 (16-17)
+                // 右下段
                 &kp N     &kp M
             >;
         };
 
-        num_layer {
+        num_layer: num_layer {
             bindings = <
-                // 左上段
                 &kp N1    &kp N2    &kp N3
-                // 右上段
                 &kp N7    &kp N8    &kp N9
-                // 左ホーム段
                 &kp N4    &kp N5    &kp N6    &kp MINUS
-                // 右ホーム段
-                &kp PLUS  &kp STAR  &kp SLASH &kp EQUAL
-                // 左下段
+                &kp PLUS  &kp ASTERISK  &kp SLASH &kp EQUAL
                 &kp COMMA &kp DOT
-                // 右下段
-                &kp LEFT_PAREN &kp RIGHT_PAREN
+                &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS
             >;
         };
 
-        nav_layer {
+        nav_layer: nav_layer {
             bindings = <
-                // 左上段
                 &kp ESC   &kp TAB   &kp BSPC
-                // 右上段
                 &kp HOME  &kp UP    &kp END
-                // 左ホーム段
                 &kp LCTRL &kp LGUI  &kp LALT &kp LSHIFT
-                // 右ホーム段
                 &kp LEFT  &kp DOWN  &kp RIGHT &kp DEL
-                // 左下段
                 &kp PGUP  &kp PGDN
-                // 右下段
-                &kp INS   &kp CAPS
+                &kp INS   &kp CAPSLOCK
             >;
         };
 
-        bt_layer {
+        bt_layer: bt_layer {
             bindings = <
-                // 左上段
                 &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2
-                // 右上段
                 &bt BT_SEL 3   &bt BT_SEL 4   &bt BT_SEL 5
-                // 左ホーム段
                 &bt BT_CLR     &none          &none          &none
-                // 右ホーム段
                 &none          &none          &none          &none
-                // 左下段
                 &none          &none
-                // 右下段
                 &none          &none
             >;
         };
