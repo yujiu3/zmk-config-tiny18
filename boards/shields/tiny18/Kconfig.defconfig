@@ -9,6 +9,16 @@ config ZMK_BLE
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
+# トラックボール有効化
+config ZMK_POINTING
+    default y
+
+config AZ1UBALL
+    default y
+
+config I2C
+    default y
+
 endif
 
 if SHIELD_TINY18_R || SHIELD_TINY18_L
