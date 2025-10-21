@@ -6,6 +6,9 @@ manifest:
       url-base: https://github.com/k3peta
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    # az1uballドライバー追加
+    - name: kzyz
+      url-base: https://github.com/kzyz
   
   projects:
     - name: zmk
@@ -14,6 +17,10 @@ manifest:
       import: app/west.yml
     - name: zmk-rgbled-widget
       remote: caksoylar
+      revision: main
+    # az1uballドライバー追加
+    - name: zmk_az1uball_driver
+      remote: kzyz
       revision: main
   self:
     path: config
