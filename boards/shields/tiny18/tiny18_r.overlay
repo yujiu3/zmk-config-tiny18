@@ -43,13 +43,7 @@
     trackball_input_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        // 速度に応じた動的スケーリング
-        input-processors = <
-            &zip_temp_layer 150 300 10 20 35
-            &zip_xy_scaler 1 1    // 低速: 1倍
-            &zip_xy_scaler 3 1    // 中速: 3倍
-            &zip_xy_scaler 6 1    // 高速: 6倍
-            &zip_xy_scaler 12 1   // 超高速: 12倍
-        >;
+        // 基本的なスケーリング (4倍速)
+        input-processors = <&zip_xy_scaler 4 1>;
     };
 };
