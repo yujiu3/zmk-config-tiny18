@@ -40,67 +40,16 @@
 };
 
 / {
-    // 速度に応じた動的スケーリング設定
-    input_processors {
-        // 低速時: 1倍（精密操作用）
-        scaler_slow: scaler_slow {
-            compatible = "zmk,input-processor-scaler";
-            #input-processor-cells = <0>;
-            type = <INPUT_EV_REL>;
-            codes = <INPUT_REL_X>, <INPUT_REL_Y>;
-            track-remainders;
-            scale-multiplier = <1>;
-            scale-divisor = <1>;
-        };
-
-        // 中速時: 3倍（通常操作用）
-        scaler_medium: scaler_medium {
-            compatible = "zmk,input-processor-scaler";
-            #input-processor-cells = <0>;
-            type = <INPUT_EV_REL>;
-            codes = <INPUT_REL_X>, <INPUT_REL_Y>;
-            track-remainders;
-            scale-multiplier = <3>;
-            scale-divisor = <1>;
-        };
-
-        // 高速時: 6倍（高速移動用）
-        scaler_fast: scaler_fast {
-            compatible = "zmk,input-processor-scaler";
-            #input-processor-cells = <0>;
-            type = <INPUT_EV_REL>;
-            codes = <INPUT_REL_X>, <INPUT_REL_Y>;
-            track-remainders;
-            scale-multiplier = <6>;
-            scale-divisor = <1>;
-        };
-
-        // 超高速時: 12倍（画面端まで一気に移動）
-        scaler_ultra: scaler_ultra {
-            compatible = "zmk,input-processor-scaler";
-            #input-processor-cells = <0>;
-            type = <INPUT_EV_REL>;
-            codes = <INPUT_REL_X>, <INPUT_REL_Y>;
-            track-remainders;
-            scale-multiplier = <12>;
-            scale-divisor = <1>;
-        };
-
-        // 速度に応じた動的スケーリング
-        temp_layer: temp_layer {
-            compatible = "zmk,input-processor-temp-layer";
-            #input-processor-cells = <0>;
-            require-prior-idle-ms = <150>;  // 150ms以上の停止後に低速モードへ
-            time-to-live-ms = <300>;        // 300ms間の動きがないと低速モードへ
-            bindings = <&scaler_slow>, <&scaler_medium>, <&scaler_fast>, <&scaler_ultra>;
-            y-thresholds = <10 20 35>;      // Y軸の閾値（動きの速さで判定）
-        };
-    };
-
     trackball_input_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        // 速度に応じた動的スケーリングを適用
-        input-processors = <&temp_layer>;
+        // 速度に応じた動的スケーリング
+        input-processors = <
+            &zip_temp_layer 150 300 10 20 35
+            &zip_xy_scaler 1 1    // 低速: 1倍
+            &zip_xy_scaler 3 1    // 中速: 3倍
+            &zip_xy_scaler 6 1    // 高速: 6倍
+            &zip_xy_scaler 12 1   // 超高速: 12倍
+        >;
     };
 };
