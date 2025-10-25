@@ -19,7 +19,7 @@ manifest:
       remote: caksoylar
       revision: main
     # az1uballドライバー追加
-    - name: zmk_az1uball_driver
+    - name: zmk-az1uball-driver
       remote: kzyz
       revision: main
   self:
