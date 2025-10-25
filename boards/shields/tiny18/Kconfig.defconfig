@@ -13,6 +13,9 @@ config ZMK_SPLIT_ROLE_CENTRAL
 config ZMK_POINTING
     default y
 
+config ZMK_MOUSE
+    default y
+
 config AZ1UBALL
     default y
 
