@@ -32,7 +32,7 @@
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
-    clock-frequency = <I2C_BITRATE_STANDARD>;
+    clock-frequency = <I2C_BITRATE_FAST>;
 
     trackball: trackball@a {
         compatible = "palette,az1uball";
@@ -45,6 +45,6 @@
     trackball_input_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_xy_scaler 1 1>;
+        input-processors = <&zip_xy_scaler 4 1>;
     };
 };
