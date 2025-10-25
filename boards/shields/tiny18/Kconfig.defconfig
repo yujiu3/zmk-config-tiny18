@@ -22,6 +22,12 @@ config AZ1UBALL
 config I2C
     default y
 
+config LOG
+    default y
+
+config AZ1UBALL_LOG_LEVEL
+    default 4
+
 endif
 
 if SHIELD_TINY18_R || SHIELD_TINY18_L
