@@ -36,7 +36,7 @@
 
     trackball: trackball@a {
         compatible = "palette,az1uball";
-        reg = <0x14>;  // 0x0A → 0x14に変更
+        reg = <0x0A>;
         status = "okay";
     };
 };
