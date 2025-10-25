@@ -1,4 +1,5 @@
 #include "tiny18.dtsi"
+#include <dt-bindings/zmk/input_transform.h>
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
@@ -6,18 +7,6 @@
     col-offset = <9>;};
 
 &xiao_serial { status = "disabled"; };
-
-// Xiao BLEのデフォルトI2Cピン設定を上書き
-&xiao_i2c {
-    status = "okay";
-    clock-frequency = <I2C_BITRATE_FAST>;
-
-    trackball: trackball@a {
-        compatible = "palette,az1uball";
-        reg = <0x0A>;
-        status = "okay";
-    };
-};
 
 // I2C設定 (D1=SDA, D2=SCL)
 &pinctrl {
@@ -56,5 +45,6 @@
     trackball_input_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
+        input-processors = <&zip_xy_scaler 4 1>;
     };
 };
