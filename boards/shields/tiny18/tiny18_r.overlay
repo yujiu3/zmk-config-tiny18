@@ -30,7 +30,7 @@
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
-    clock-frequency = <I2C_BITRATE_FAST>;
+    clock-frequency = <I2C_BITRATE_STANDARD>;  // まずは標準速度で
 
     trackball: trackball@a {
         compatible = "palette,az1uball";
@@ -40,10 +40,8 @@
 };
 
 / {
-    trackball_input_listener {
+    trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        // 基本的なスケーリング (4倍速)
-        input-processors = <&zip_xy_scaler 4 1>;
     };
 };
