@@ -1,26 +1,26 @@
 #include "tiny18.dtsi"
 #include <dt-bindings/zmk/input_transform.h>
 #include <input/processors.dtsi>
-#include <dt-bindings/zmk/input_transform.h>
 
 &default_transform {
-    col-offset = <9>;};
+    col-offset = <9>;
+};
 
 &xiao_serial { status = "disabled"; };
 
-// I2C設定 (D1=SDA, D2=SCL)
+// I2C設定 (D1=SDA, D2=SCL) - XIAO nRF52840
 &pinctrl {
     i2c0_default: i2c0_default {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 1)>,  // D1
-                    <NRF_PSEL(TWIM_SCL, 0, 2)>;  // D2
+            psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,  // D1 -> P0.2
+                    <NRF_PSEL(TWIM_SCL, 0, 3)>;  // D2 -> P0.3
         };
     };
 
     i2c0_sleep: i2c0_sleep {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 1)>,
-                    <NRF_PSEL(TWIM_SCL, 0, 2)>;
+            psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 3)>;
             low-power-enable;
         };
     };
@@ -32,7 +32,7 @@
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
-    clock-frequency = <I2C_BITRATE_STANDARD>;  // まずは標準速度で
+    clock-frequency = <I2C_BITRATE_FAST>;
 
     trackball: trackball@a {
         compatible = "palette,az1uball";
