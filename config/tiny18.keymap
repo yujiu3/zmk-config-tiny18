@@ -84,6 +84,21 @@
             bindings = <&tog 3>;
             key-positions = <15 6>;
         };
+
+        L11 {
+            bindings = <&tog 1>;
+            key-positions = <3 5>;
+        };
+
+        L22 {
+            bindings = <&tog 2>;
+            key-positions = <10 12>;
+        };
+
+        L33 {
+            bindings = <&tog 3>;
+            key-positions = <16 13>;
+        };
     };
 
     keymap {
@@ -109,7 +124,7 @@
 
         bt_layer: bt_layer {
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5  &bt BT_CLR  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5  &bt BT_CLR  &none  &none  &none  &none  &none  &none  &bt BT_CLR_ALL  &none  &none  &none  &none
             >;
         };
     };
