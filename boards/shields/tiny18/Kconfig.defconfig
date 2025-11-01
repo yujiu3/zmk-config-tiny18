@@ -9,6 +9,26 @@ config ZMK_BLE
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
+endif
+
+if SHIELD_TINY18_R || SHIELD_TINY18_L
+
+
+config ZMK_SPLIT
+    default y
+
+config INPUT
+    default y
+
+config ZMK_POINTING
+    default y
+
+config RGBLED_WIDGET_BATTERY_LEVEL_HIGH
+    default 30
+
+config RGBLED_WIDGET_BATTERY_LEVEL_CRITICAL
+    default 10
+
 # トラックボール有効化
 config ZMK_POINTING
     default y
@@ -27,26 +47,5 @@ config LOG
 
 config AZ1UBALL_LOG_LEVEL
     default 4
-
-endif
-
-if SHIELD_TINY18_R || SHIELD_TINY18_L
-
-
-config ZMK_SPLIT
-    default y
-
-config INPUT
-    default y
-
-config ZMK_POINTING
-    default y
-
-
-config RGBLED_WIDGET_BATTERY_LEVEL_HIGH
-    default 30
-
-config RGBLED_WIDGET_BATTERY_LEVEL_CRITICAL
-    default 10
 
 endif
