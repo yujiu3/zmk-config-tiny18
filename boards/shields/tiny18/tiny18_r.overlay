@@ -45,11 +45,15 @@
     trackball_input_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_xy_scaler 8 1>;
+        input-processors = <&zip_xy_scaler 16 1>;
 
         scroller {
             layers = <2>;
-            input-processors = <&zip_xy_to_scroll_mapper>;
+            input-processors = <
+                &zip_xy_to_scroll_mapper
+                &zip_scroll_scaler 2 3
+                &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
+            >;
         };
     };
 };
