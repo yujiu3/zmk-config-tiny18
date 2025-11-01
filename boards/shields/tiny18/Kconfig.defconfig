@@ -13,6 +13,8 @@ endif
 
 if SHIELD_TINY18_R || SHIELD_TINY18_L
 
+config NFCT_PINS_AS_GPIOS
+    default y
 
 config ZMK_SPLIT
     default y
