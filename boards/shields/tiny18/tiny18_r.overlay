@@ -8,6 +8,7 @@
 
 &xiao_serial { status = "disabled"; };
 
+/*********
 // I2C設定 (D1=SDA, D2=SCL) - XIAO nRF52840
 &pinctrl {
     i2c0_default: i2c0_default {
@@ -40,12 +41,58 @@
         status = "okay";
     };
 };
+**********/
+
+/**********
+1番ピン(VCC) → 3.3V 赤🟥
+2番ピン(CS) → P0.09 青🟦
+3番ピン(MOTION) → D2 (P0.28) 茶🟫
+4番ピン(SDIO) → D1 (P0.03)※双方向データピン 緑🟩
+5番ピン(SCLK) → P0.10 黄🟨
+6番ピン(GND) → GND 黒
+**********/
+
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 10)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 3)>,
+                <NRF_PSEL(SPIM_MISO, 0, 3)>;
+        };
+    };
+
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 10)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 3)>,
+                <NRF_PSEL(SPIM_MISO, 0, 3)>;
+            low-power-enable;
+        };
+    };
+};
+
+&spi0 {
+    status = "okay";
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+
+    trackball: trackball@0 {
+        status = "okay";
+        compatible = "pixart,paw3222";
+        reg = <0>;
+        spi-max-frequency = <2000000>;
+        irq-gpios = <&gpio0 28 GPIO_ACTIVE_LOW>;
+    };
+};
 
 / {
     trackball_input_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_xy_scaler 16 1>;
+        input-processors = <&zip_xy_scaler 3 2>;
 
         scroller {
             layers = <2>;
