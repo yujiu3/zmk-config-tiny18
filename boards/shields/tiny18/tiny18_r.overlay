@@ -102,7 +102,7 @@
                 &zip_scroll_scaler 2 3
                 &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
             >;
-**********/
         };
+**********/
     };
 };
