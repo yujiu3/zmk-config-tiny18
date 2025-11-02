@@ -6,9 +6,11 @@ manifest:
       url-base: https://github.com/k3peta
     - name: caksoylar
       url-base: https://github.com/caksoylar
-    # az1uballドライバー追加
-    - name: kzyz
-      url-base: https://github.com/kzyz
+    - name: sekigon-gonnoc
+      url-base: https://github.com/sekigon-gonnoc
+    #az1uballドライバー追加
+    #- name: kzyz
+      #url-base: https://github.com/kzyz
   
   projects:
     - name: zmk
@@ -19,8 +21,11 @@ manifest:
       remote: caksoylar
       revision: main
     # az1uballドライバー追加
-    - name: zmk_az1uball_driver
-      remote: kzyz
+    #- name: zmk_az1uball_driver
+      #remote: kzyz
+      #revision: main
+    - name: zmk-driver-paw3222
+      remote: sekigon-gonnoc
       revision: main
   self:
     path: config
