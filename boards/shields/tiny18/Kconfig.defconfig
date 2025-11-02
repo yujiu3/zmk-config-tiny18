@@ -32,22 +32,24 @@ config RGBLED_WIDGET_BATTERY_LEVEL_CRITICAL
     default 10
 
 # トラックボール有効化
+
 config ZMK_POINTING
     default y
 
 config ZMK_MOUSE
     default y
 
-config AZ1UBALL
+# config AZ1UBALL
+config PAW3222
     default y
 
-config I2C
-    default y
+# config I2C
+    # default y
 
-config LOG
-    default y
+# config LOG
+    # default y
 
-config AZ1UBALL_LOG_LEVEL
-    default 4
+# config AZ1UBALL_LOG_LEVEL
+    # default 4
 
 endif
