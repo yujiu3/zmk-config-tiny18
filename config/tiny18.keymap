@@ -78,7 +78,7 @@
 
         default_layer: default_layer {
             bindings = <
-&lt 2 W  &lt 4 E  &lt 1 R  &kp Y  &kp U  &kp I  &mt LEFT_GUI A  &mt LEFT_SHIFT S  &mt LCTRL D  &mt LEFT_ALT F  &mt RIGHT_ALT J  &mt RIGHT_CONTROL K  &mt RIGHT_SHIFT L  &mt RIGHT_GUI MINUS  &kp V  &kp B  &kp N  &kp M
+&lt 2 W  &lt 4 E  &lt 1 R  &kp Y  &kp U  &kp I  &mt LEFT_GUI A  &mt LEFT_SHIFT S  &mt LCTRL D  &mt LEFT_ALT F  &mt RIGHT_ALT J  &mt RIGHT_CONTROL K  &mt RIGHT_SHIFT L  &mt RIGHT_GUI MINUS  &kp V  &lt 6 B  &lt 5 N  &kp M
             >;
         };
 
@@ -103,6 +103,18 @@
         func_layer {
             bindings = <
 &trans  &trans  &trans  &kp F7  &kp F8  &kp F9  &trans  &trans  &trans  &trans  &kp RA(F4)  &kp F5  &kp F6  &kp F3  &trans  &trans  &kp F1  &kp F2
+            >;
+        };
+
+        lower_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LANG1  &trans  &trans  &trans  &trans  &kp ESCAPE  &kp SPACE  &trans  &trans
+            >;
+        };
+
+        raise_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LANG2  &trans  &trans  &trans  &trans  &trans  &kp BACKSPACE  &kp RETURN
             >;
         };
     };
