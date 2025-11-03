@@ -32,71 +32,42 @@
 #define JP_EISU         LANGUAGE_2        // 英数
 #define JP_HANZEN       GRAVE             // 半角/全角
 
-// ChatGTP提案キーマップ
-
 / {
     combos {
         compatible = "zmk,combos";
 
-        // 下段ショートカット（左右2キーずつ）
+/***** key-positions *****
+   0  1  2     3  4  5
+6  7  8  9    10 11 12 13
+     14 15    16 17
+*************************/
 
-        left_bottom {
-            key-positions = <14 15>;  // 左親指下段
-            bindings = <&kp Z &kp X>;
-        };
-
-        right_bottom {
-            key-positions = <16 17>; // 右親指下段
-            bindings = <&kp N &kp M>;
-        };
-
-        // Alt+Tab 順送り
-
-        alt_tab {
-            key-positions = <6 12>;  // 左ホームCtrl(A) + 右ホームAlt(K)
-            bindings = <&kp TAB &kp RIGHT_ALT>;
-        };
-
-        // Alt+Tab 逆送り（Shift追加）
-
-        alt_shift_tab {
-            key-positions = <6 10 12>;  // 左ホームCtrl(A) + 右ホームShift(J) + 右ホームAlt(K)
-            bindings = <&kp TAB &kp RSHIFT &kp RIGHT_ALT>;
-        };
-
-        // 日本語IME
-
-        ime_toggle {
-            key-positions = <7 11>; // 左ホームGUI(S) / 右ホームAlt(K)
-            bindings = <&kp LANG1 &kp LANG2>;
-        };
-
-        L1 {
+        L1l {
             bindings = <&tog 1>;
             key-positions = <0 2>;
         };
 
-        L2 {
+        L2l {
             bindings = <&tog 2>;
             key-positions = <9 7>;
         };
 
-        L3 {
+        L3l {
             bindings = <&tog 3>;
             key-positions = <15 6>;
         };
 
-        L11 {
+        L1r {
             bindings = <&tog 1>;
             key-positions = <3 5>;
         };
 
-        L22 {
+        L2r {
             bindings = <&tog 2>;
             key-positions = <10 12>;
         };
 
-        L33 {
+        L3r {
             bindings = <&tog 3>;
             key-positions = <16 13>;
         };
@@ -107,147 +78,34 @@
 
         default_layer: default_layer {
             bindings = <
-&kp Q  &kp W  &kp E  &kp Y  &kp U  &kp I  &mt LCTRL A  &mt LGUI S  &mt LALT D  &mt LSHIFT F  &mt RSHIFT J  &mt RALT K  &mt RGUI L  &kp RCTRL  &kp Z  &kp X  &kp N  &kp M
+             &kp Q       &kp W       &kp E           &kp Y         &kp U       &kp I
+&mt LCTRL A  &mt LGUI S  &mt LALT D  &mt LSHIFT F    &mt RSHIFT J  &mt RALT K  &mt RGUI L  &kp RCTRL  
+                         &kp Z       &kp X           &kp N         &kp M
             >;
         };
 
         num_layer: num_layer {
             bindings = <
-&kp N1  &kp N2  &kp N3  &kp N7  &kp N8  &kp N9  &kp N4  &kp N5  &kp N6  &kp MINUS  &kp PLUS  &kp ASTERISK  &kp SLASH  &kp EQUAL  &kp COMMA  &kp DOT  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+        &kp N1  &kp N2     &kp N3       &kp N7                &kpN8                  &kpN9  
+&kp N4  &kp N5  &kp N6     &kp MINUS    &kp PLUS              &kp ASTERISK           &kp SLASH  &kp EQUAL  
+                &kp COMMA  &kp DOT      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
             >;
         };
 
         nav_layer: nav_layer {
             bindings = <
-&kp ESC  &kp TAB  &kp BSPC  &kp HOME  &kp UP  &kp END  &kp LCTRL  &kp LGUI  &kp LALT  &kp LSHIFT  &kp LEFT  &kp DOWN  &kp RIGHT  &kp DEL  &kp PGUP  &kp PGDN  &kp INS  &kp CAPSLOCK
+           &kp ESC   &kp TAB   &kp BSPC      &kp HOME  &kp UP        &kp END  
+&kp LCTRL  &kp LGUI  &kp LALT  &kp LSHIFT    &kp LEFT  &kp DOWN      &kp RIGHT  &kp DEL  
+                     &kp PGUP  &kp PGDN      &kp INS   &kp CAPSLOCK
             >;
         };
 
         bt_layer: bt_layer {
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5  &bt BT_CLR_ALL  &none  &none  &none  &none  &none  &none  &bt BT_CLR_ALL  &none  &none  &none  &none
+                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5  
+&bt BT_CLR_ALL  &none         &none         &none           &none         &none         &none         &bt BT_CLR_ALL  
+                              &none         &none           &none         &none
             >;
         };
     };
 };
-
-/* 以下デフォルト
-
-/ {
-    combos {
-        compatible = "zmk,combos";
-
-        q {
-            bindings = <&kp Q>;
-            key-positions = <1 0>;
-        };
-
-        f {
-            bindings = <&kp F>;
-            key-positions = <2 1>;
-        };
-
-        y {
-            bindings = <&kp Y>;
-            key-positions = <10 9>;
-        };
-
-        p {
-            bindings = <&kp P>;
-            key-positions = <4 5>;
-        };
-
-        b {
-            bindings = <&kp B>;
-            key-positions = <8 9>;
-        };
-
-        j {
-            bindings = <&kp J>;
-            key-positions = <10 11>;
-        };
-
-        lang1 {
-            bindings = <&mt LEFT_GUI LANGUAGE_2>;
-            key-positions = <7 8>;
-        };
-
-        lang2 {
-            bindings = <&mt RIGHT_GUI LANGUAGE_1>;
-            key-positions = <11 12>;
-        };
-
-        lsft {
-            bindings = <&kp LSHFT>;
-            key-positions = <6 7>;
-        };
-
-        lctr {
-            bindings = <&kp LCTRL>;
-            key-positions = <14 15>;
-        };
-
-        lalt {
-            bindings = <&kp LEFT_ALT>;
-            key-positions = <16 17>;
-        };
-
-        layer4 {
-            bindings = <&mo 4>;
-            key-positions = <11 4>;
-        };
-
-        layer5 {
-            bindings = <&mo 5>;
-            key-positions = <5 12>;
-        };
-    };
-
-    keymap {
-        compatible = "zmk,keymap";
-
-        default_layer {
-            bindings = <
-&lt 2 W  &kp E  &kp R  &kp U  &kp I  &kp O  &kp A  &kp S  &kp D  &kp T  &kp H  &lt 3 K  &lt 1 L  &mt RIGHT_SHIFT ENTER  &kp Z  &kp G  &kp M  &kp N
-            >;
-        };
-
-        layer_1 {
-            bindings = <
-&kp X  &kp C  &kp V  &kp SLASH  &kp GRAVE  &kp RIGHT_ALT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp COMMA  &kp PERIOD  &kp SPACE  &kp ENTER  &trans  &kp RIGHT_SHIFT  &kp SEMICOLON  &kp MINUS  &kp RIGHT_COMMAND  &kp BACKSPACE
-            >;
-        };
-
-        layer_2 {
-            bindings = <
-&trans  &kp LEFT_SHIFT  &kp RIGHT_GUI  &kp EQUAL  &kp BACKSLASH  &kp UP_ARROW  &kp ESCAPE  &trans  &kp DEL  &kp RIGHT_ARROW  &kp BACKSPACE  &kp LEFT  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp TAB  &kp LEFT  &kp SQT  &kp RG(ENTER)
-            >;
-        };
-
-        layer_3 {
-            bindings = <
-&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans  &trans  &kp N7  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans  &trans  &kp RIGHT_SHIFT  &trans  &kp N8  &kp N9  &kp N0  &kp PERIOD
-            >;
-        };
-
-        layer_4 {
-            bindings = <
-&kp F1  &kp F2  &kp F3  &trans  &trans  &trans  &kp F7  &kp F4  &kp F5  &kp F6  &trans  &trans  &kp F11  &kp F12  &kp F8  &kp F9  &kp F10  &trans
-            >;
-        };
-
-        layer_5 {
-            bindings = <
-&trans  &trans  &trans  &bt BT_SEL 1  &bt BT_SEL 4  &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 2  &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 3
-            >;
-        };
-
-        layer_6 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-    };
-};
-
-*/
