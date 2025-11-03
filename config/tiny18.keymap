@@ -71,6 +71,51 @@
             bindings = <&tog 3>;
             key-positions = <16 13>;
         };
+
+        q {
+            bindings = <&kp Q>;
+            key-positions = <0 1>;
+        };
+
+        t {
+            bindings = <&kp T>;
+            key-positions = <1 2>;
+        };
+
+        y {
+            bindings = <&kp Y>;
+            key-positions = <3 4>;
+        };
+
+        p {
+            bindings = <&kp P>;
+            key-positions = <5 4>;
+        };
+
+        g {
+            bindings = <&kp G>;
+            key-positions = <9 8>;
+        };
+
+        h {
+            bindings = <&kp H>;
+            key-positions = <10 11>;
+        };
+
+        z {
+            bindings = <&kp Z>;
+            key-positions = <7 6>;
+        };
+
+        x {
+            bindings = <&kp X>;
+            key-positions = <8 7>;
+        };
+
+        c {
+            bindings = <&kp C>;
+            key-positions = <8 14>;
+        };
     };
 
     keymap {
