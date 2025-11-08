@@ -98,10 +98,10 @@
         >;
 
         scroller {
-            layers = <2>;
+            layers = <1>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
-                &zip_scroll_scaler 2 3
+                &zip_scroll_scaler 1 3
                 &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
             >;
         };
