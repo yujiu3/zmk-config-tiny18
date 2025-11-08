@@ -104,5 +104,7 @@
             >;
         };
 **********/
+        input-processors = <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+
     };
 };
